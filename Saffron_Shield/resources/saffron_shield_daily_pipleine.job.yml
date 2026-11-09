@@ -1,0 +1,50 @@
+resources:
+  jobs:
+    Saffron_shield_daily_pipeline:
+      name: Saffron_shield_daily_pipeline
+      trigger:
+        pause_status: UNPAUSED
+        file_arrival:
+          url: /Volumes/claims/raw/landing/claims_raw/
+      tasks:
+        - task_key: bronze
+          notebook_task:
+            notebook_path: /Workspace/Users/jainanvesha14@gmail.com/Saffron-Shield/Saffron_Shield/src/01_bronze
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: Silver
+          depends_on:
+            - task_key: bronze
+          pipeline_task:
+            pipeline_id: f733c441-fb81-46a5-a318-c406d090aeed
+        - task_key: policy
+          depends_on:
+            - task_key: Silver
+          notebook_task:
+            notebook_path: /Workspace/Users/jainanvesha14@gmail.com/Saffron-Shield/Saffron_Shield/src/policy
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: Gold
+          depends_on:
+            - task_key: policy
+          notebook_task:
+            notebook_path: /Workspace/Users/jainanvesha14@gmail.com/Saffron-Shield/Saffron_Shield/src/Gold
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+        - task_key: Designer
+          depends_on:
+            - task_key: Gold
+          notebook_task:
+            notebook_path: /Workspace/Users/jainanvesha14@gmail.com/Saffron-Shield/Saffron_Shield/src/monthly_hospital_summary.designer.ipynb
+            source: WORKSPACE
+          min_retry_interval_millis: 900000
+          disable_auto_optimization: true
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+      performance_target: PERFORMANCE_OPTIMIZED

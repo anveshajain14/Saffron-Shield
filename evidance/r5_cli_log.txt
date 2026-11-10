@@ -1,0 +1,39 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261106152643
+Username: ANVESHA\jaina
+RunAs User: ANVESHA\jaina
+Configuration Name: 
+Machine: ANVESHA (Microsoft Windows NT 10.0.26300.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 37508
+PSVersion: 5.1.26100.9818
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9818
+BuildVersion: 10.0.26100.9818
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\jaina\Desktop\SaffronShield\evidence\cli\r5_cli_log.txt
+PS C:\Users\jaina> databricks catalogs list --profile saffron
+
+PS C:\Users\jaina> databricks fs mkdirs dbfs:/Volumes/claims/raw/landing/cli_check/ --profile saffron
+
+PS C:\Users\jaina> "R5 CLI evidence upload test" | Out-File -Encoding utf8 test_cli.txt
+PS C:\Users\jaina> databricks fs cp test_cli.txt dbfs:/Volumes/claims/raw/landing/cli_check/cli_test.txt --profile saffron
+
+PS C:\Users\jaina> databricks fs ls dbfs:/Volumes/claims/raw/landing/cli_check/ --profile saffron
+
+PS C:\Users\jaina> databricks jobs list --profile saffron
+
+PS C:\Users\jaina> databricks jobs run-now 638915312013666 --profile saffron
+  ],
+  "trigger": "ONE_TIME"
+}
+PS C:\Users\jaina> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20261106153340
+**********************

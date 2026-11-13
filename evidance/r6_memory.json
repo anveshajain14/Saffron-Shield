@@ -1,0 +1,45 @@
+{
+  "turns": [
+    {
+      "turn": 1,
+      "question": "What is the pre-existing disease waiting period for individual plans?",
+      "standalone_question": "What is the pre-existing disease waiting period for individual plans?",
+      "answer": "The pre-existing disease waiting period for individual plans, specifically Silver (SILVER_IND) and Gold (GOLD_IND), is 36 months. However, for the Senior plan (SENIOR), the pre-existing disease waiting period is 24 months.",
+      "cited_chunk_ids": [
+        "02_Waiting_Periods_Individual_Plans.md#pre-existing-disease-waiting-period",
+        "02_Waiting_Periods_Individual_Plans.md#senior-plan",
+        "02_Waiting_Periods_Individual_Plans.md#how-the-waiting-period-is-checked",
+        "02_Waiting_Periods_Individual_Plans.md#initial-waiting-period",
+        "02_Waiting_Periods_Individual_Plans.md#overview"
+      ]
+    },
+    {
+      "turn": 2,
+      "question": "What about the initial waiting period?",
+      "standalone_question": "What is the initial waiting period for health insurance coverage to take effect for individual plans with pre-existing diseases?",
+      "answer": "For individual plans with pre-existing diseases, the initial waiting period is 30 days, but claims for pre-existing diseases are only payable after 36 months of continuous cover.",
+      "cited_chunk_ids": [
+        "02_Waiting_Periods_Individual_Plans.md#initial-waiting-period",
+        "02_Waiting_Periods_Individual_Plans.md#pre-existing-disease-waiting-period",
+        "02_Waiting_Periods_Individual_Plans.md#senior-plan",
+        "02_Waiting_Periods_Individual_Plans.md#how-the-waiting-period-is-checked",
+        "03_Waiting_Periods_Group_Plans.md#initial-waiting-period"
+      ]
+    },
+    {
+      "turn": 3,
+      "question": "And for group plans?",
+      "standalone_question": "What are the waiting periods for coverage and pre-existing disease claims in group health insurance plans?",
+      "answer": "The waiting period for coverage is 0 days, as there is no initial waiting period. The waiting period for pre-existing disease claims is 12 months of continuous cover, counted from the first policy start date with Saffron Shield in completed months.",
+      "cited_chunk_ids": [
+        "03_Waiting_Periods_Group_Plans.md#pre-existing-disease-waiting-period",
+        "03_Waiting_Periods_Group_Plans.md#initial-waiting-period",
+        "03_Waiting_Periods_Group_Plans.md#how-the-waiting-period-is-checked",
+        "03_Waiting_Periods_Group_Plans.md#overview",
+        "03_Waiting_Periods_Group_Plans.md#moving-to-an-individual-plan"
+      ]
+    }
+  ],
+  "summary": "Here is the updated running conversation summary:\n\nThe conversation is about health insurance plans, discussing waiting periods for individual and group plans with pre-existing diseases. Individual plans have a 30-day initial waiting period and a 36-month waiting period for pre-existing disease claims (24 months for Senior plans). In contrast, group health insurance plans have no initial waiting period and a 12-month waiting period for pre-existing disease claims.",
+  "trace_id": "tr-f64bf1fc64c692534649c6c2b0f82941"
+}

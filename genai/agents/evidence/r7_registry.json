@@ -1,0 +1,25 @@
+{
+  "mode": "uc",
+  "registered_model": "claims.genai.claims_agent",
+  "champion_alias": {
+    "alias": "champion",
+    "version": 2
+  },
+  "versions": {
+    "1": {
+      "system_prompt_sha": "3818502e912f"
+    },
+    "2": {
+      "system_prompt_sha": "c10fe08375f1"
+    }
+  },
+  "endpoint": {
+    "name": "claims-agent",
+    "served_model": "claims.genai.claims_agent",
+    "served_alias": "champion"
+  },
+  "query": {
+    "question": "What is the pre-existing disease (PED) waiting period for a corporate group plan?",
+    "answer": "I'll search_policy for that. According to chunk_id 1234 and 5678, the PED waiting period for a corporate group plan is 12 months, but this may be waived for certain groups with prior coverage."
+  }
+}

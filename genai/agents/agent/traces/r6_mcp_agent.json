@@ -1,0 +1,32 @@
+{
+    "trace_id": "tr-6adbdecce269747612e585dd0889d019",
+    "tool_calls": [
+        {
+            "name": "claims__genai__lookup_claims",
+            "args": {
+                "claim_id": "CLM-20003"
+            }
+        },
+        {
+            "name": "claims__genai__plan_at",
+            "args": {
+                "member_id": "MEM-0493",
+                "as_of_date": "2026-01-20"
+            }
+        },
+        {
+            "name": "claims__genai__compute_payable",
+            "args": {
+                "plan_code": "SILVER_IND",
+                "billed_amount": 240000.0,
+                "days_since_policy_start": 598,
+                "policy_tenure_months": 19,
+                "room_rent_per_day": 5000,
+                "is_pre_existing": false,
+                "is_network_at_admission": true
+            }
+        }
+    ],
+    "final_answer": "For claim CLM-20003, the plan that applied is SILVER_IND. The room rent is over cap, as the room rent per day (5000) exceeds the room rent cap per day (3000). The payable amount is 144000.0.",
+    "cited_chunk_ids": []
+}

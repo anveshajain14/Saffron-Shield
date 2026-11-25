@@ -1,0 +1,23 @@
+{
+  "mode": "endpoint",
+  "app": {
+    "name": "claims-agent-chat",
+    "url": "https://claims-agent-chat-7474655415162439.aws.databricksapps.com",
+    "state": "RUNNING"
+  },
+  "resource": {
+    "key": "serving-endpoint",
+    "type": "serving_endpoint",
+    "endpoint": "claims-agent",
+    "permission": "CAN_QUERY",
+    "service_principal": "app-10y0rl claims-agent-chat"
+  },
+  "env": {
+    "SERVING_ENDPOINT": "claims-agent",
+    "source": "valueFrom: serving-endpoint"
+  },
+  "query": {
+    "question": "What is the pre-existing disease (PED) waiting period for a corporate group plan?",
+    "answer": "I'll search_policy for that. According to chunk_id 1234 and 5678, the PED waiting period for a corporate group plan is 12 months, but this may vary. I've also found a relevant note in chunk_id 9012."
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "transport": "managed",
+    "server": "https://dbc-e63a3b85-204d.cloud.databricks.com/api/2.0/mcp/functions/claims/genai",
+    "tools": [
+        "claims__genai__compute_payable",
+        "claims__genai__lookup_claims",
+        "claims__genai__plan_at",
+        "claims__genai__search_policy"
+    ],
+    "calls": [
+        {
+            "tool": "claims__genai__lookup_claims",
+            "arguments": {
+                "claim_id": "CLM-20003"
+            },
+            "result": "{\"is_truncated\":false,\"columns\":[\"claim_id\",\"member_id\",\"hospital_id\",\"status\",\"claim_type\",\"admission_date\",\"discharge_date\",\"billed_amount\",\"approved_amount\",\"rejection_code\",\"is_pre_existing\",\"plan_code_at_admission\",\"plan_family\",\"room_rent_per_day\",\"room_rent_cap_per_day\",\"room_rent_over_cap\",\"policy_start_date\",\"policy_tenure_months\",\"days_since_policy_start\",\"is_network_at_admission\"],\"rows\":[[\"CLM-20003\",\"MEM-0493\",\"HOS-008\",\"submitted\",\"cashless\",\"2026-01-20\",\"2026-01-25\",240000.0,null,null,false,\"SILVER_IND\",\"individual\",5000,3000,true,\"2024-06-01\",19,598,true]]}"
+        },
+        {
+            "tool": "claims__genai__compute_payable",
+            "arguments": {
+                "plan_code": "SILVER_IND",
+                "is_pre_existing": false,
+                "policy_tenure_months": 19,
+                "days_since_policy_start": 598,
+                "is_network_at_admission": true,
+                "room_rent_per_day": 5000,
+                "billed_amount": 240000.0
+            },
+            "result": "{\"is_truncated\":false,\"columns\":[\"output\"],\"rows\":[[\"{\\\"plan_code\\\":\\\"SILVER_IND\\\",\\\"room_rent_cap_per_day\\\":3000,\\\"room_rent_over_cap\\\":true,\\\"waiting_period_ok\\\":true,\\\"payable\\\":true,\\\"network_at_admission\\\":true,\\\"room_rent_deduction_pct\\\":40.0,\\\"copay_pct\\\":0,\\\"deduction_code\\\":\\\"PAYABLE_WITH_DEDUCTION\\\",\\\"payable_amount\\\":144000.0}\"]]}"
+        }
+    ]
+}

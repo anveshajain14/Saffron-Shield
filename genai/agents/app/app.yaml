@@ -1,0 +1,16 @@
+command:
+  - gunicorn
+  - app:server
+  - -w
+  - 2
+  - --timeout
+  - 300
+
+# The serving-endpoint resource (key "serving-endpoint", pointing at the
+# claims-agent Model Serving endpoint with CAN_QUERY) is attached to the
+# app itself (Settings > Resources / apps create-update); this env entry
+# references it by key, so the endpoint name comes from configuration,
+# never from a token or a name written into the code.
+env:
+  - name: SERVING_ENDPOINT
+    valueFrom: serving-endpoint

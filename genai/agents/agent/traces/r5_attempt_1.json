@@ -1,0 +1,52 @@
+{
+  "question": "For CLM-20003: which plan applied, is room rent over cap, and what is payable ?",
+  "attempt": 1,
+  "trace_id": "66572a78-b25d-4968-a165-6df8caf7c935",
+  "route": [
+    "data",
+    "policy",
+    "adjudication",
+    "verifier"
+  ],
+  "specialists": {
+    "data": {
+      "tool_calls": [
+        "claims__genai__lookup_claims",
+        "claims__genai__plan_at"
+      ]
+    },
+    "policy": {
+      "tool_calls": [
+        "claims__genai__search_policy"
+      ],
+      "cited_chunk_ids": [
+        "04_Room_Rent_Capping_and_Proportionate_Deduction.md#which-cap-applies",
+        "04_Room_Rent_Capping_and_Proportionate_Deduction.md#proportionate-deduction",
+        "04_Room_Rent_Capping_and_Proportionate_Deduction.md#room-rent-caps-by-plan",
+        "04_Room_Rent_Capping_and_Proportionate_Deduction.md#room-categories",
+        "01_Claims_Process_Overview.md#the-four-adjudication-facts"
+      ]
+    },
+    "adjudication": {
+      "tool_calls": [
+        "claims__genai__compute_payable",
+        "claims__genai__compute_payable"
+      ]
+    }
+  },
+  "verifier": {
+    "agrees": true
+  },
+  "verdict": {
+    "plan_code": "SILVER_IND",
+    "payable": true,
+    "waiting_period_ok": true,
+    "network_at_admission": true,
+    "room_rent_over_cap": true,
+    "room_rent_deduction_pct": 40.0,
+    "copay_pct": 0,
+    "reason_code": "PAYABLE_WITH_DEDUCTION",
+    "payable_amount": 144000.0
+  },
+  "final_answer": "For claim CLM-20003, the plan applicable at admission was SILVER_IND. The room rent was over the applicable cap. The room-rent proportionate deduction is 40.0%. The verified payable amount is 144000.0. Payable status: True. Reason code: PAYABLE_WITH_DEDUCTION."
+}

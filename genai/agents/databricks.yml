@@ -1,0 +1,31 @@
+bundle:
+  name: claims-agent-chat
+
+targets:
+  dev:
+    default: true
+    mode: development
+
+resources:
+  apps:
+    claims_agent_chat:
+      name: claims-agent-chat
+      description: Chat page for adjusters over the claims agent serving endpoint
+      source_code_path: ./app
+      config:
+        command:
+          - gunicorn
+          - app:server
+          - -w
+          - 2
+          - --timeout
+          - 300
+        env:
+          - name: SERVING_ENDPOINT
+            value_from: serving-endpoint
+        resources:
+          - name: serving-endpoint
+            description: The Databricks Model Serving endpoint hosting the claims agent.
+            serving_endpoint:
+              name: claims-agent
+              permission: CAN_QUERY
